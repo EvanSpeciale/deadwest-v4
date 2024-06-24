@@ -10,7 +10,7 @@ export default function Document() {
                 <script dangerouslySetInnerHTML={{
                     __html: `
             window.SnipcartSettings = {
-                publicApiKey: {process.env.NEXT_PUBLIC_SNIPCART_API_KEY},
+                publicApiKey: "${process.env.NEXT_PUBLIC_SNIPCART_API_KEY}",
                 loadStrategy: "on-user-interaction",
                 modalStyle: "side",
             };
