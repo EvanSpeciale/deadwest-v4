@@ -46,11 +46,6 @@ const Header = () => {
           </button>
         </p>
         <ul className={styles.headerLocales}>
-          <li>
-            <Link href="#">
-              <a className='activeLocale'>{activeLocale}</a>
-            </Link>
-          </li>
           {availableLocales.map(locale => {
             return (
               <li key={locale}>
