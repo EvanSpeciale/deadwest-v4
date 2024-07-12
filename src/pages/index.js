@@ -14,12 +14,31 @@ import Script from 'next/script';
 export default function Home({ home, products }) {
   const { heroTitle, heroText, heroLink, heroBackground } = home;
   return (
-    <Layout>
+    <Layout className="test">
       <Head>
         <title>Dead West</title>
         <meta name="description" content="Handmade goods" />
       </Head>
-      <Container>
+      <div className='relative isolate px-6 pt-10 lg:px-8'>
+        {/* <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+          <div
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          />
+        </div> */}
+        <div className="mx-auto max-w-6xl min-w-40">
+          <div className="flex flex-wrap sm:mb-8 justify-center">
+            <button type="button" className="flex-initial w-96 m-w-60 mx-auto py-4 my-4 mx-4 text-desert-red hover:text-desert-turquoise border-4 border-desert-red hover:bg-desert-red focus:ring-4 focus:outline-none focus:ring-desert-turquoise font-light rounded-full text-4xl text-center">Gallery</button>
+            <Link href="/categories/featured">
+              <button type="button" className="flex-initial w-96 m-w-60 col-auto mx-auto py-4 my-4 mx-4 text-desert-red hover:text-desert-turquoise border-4 border-desert-red hover:bg-desert-red focus:ring-4 focus:outline-none focus:ring-desert-turquoise font-light rounded-full text-4xl text-center">Shop</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/* <Container className="test">
         <h1 className="sr-only">Dead West</h1>
 
         <div className={styles.hero}>
@@ -69,7 +88,7 @@ export default function Home({ home, products }) {
             )
           })}
         </ul>
-      </Container>
+      </Container> */}
     </Layout>
   )
 }

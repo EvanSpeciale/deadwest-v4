@@ -1,5 +1,5 @@
 import { SnipcartProvider } from 'use-snipcart';
-import '@styles/globals.scss'
+import '@styles/globals.css'
 
 
 function MyApp({ Component, pageProps }) {
