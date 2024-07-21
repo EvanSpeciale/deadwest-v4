@@ -27,7 +27,7 @@ const Header = () => {
           <Link href="/" className="-m-1.5 p-1.5">
             <div>
               <span className="sr-only">Dead West</span>
-              <FaSkull className='size-8 text-desert-red' />
+              <FaSkull className='size-8 text-desert-green-dark' />
             </div>
           </Link>
         </div>
@@ -50,7 +50,7 @@ const Header = () => {
         </div> */}
         <div className="flex flex-1 justify-end">
           <button className='snipcart-checkout'>
-            <FaShoppingCart className='size-6 text-desert-red' />
+            <FaShoppingCart className='size-6 text-desert-green-dark' />
           </button>
         </div>
       </nav>

@@ -18,6 +18,9 @@ export default function Home({ home, products }) {
       <Head>
         <title>Dead West</title>
         <meta name="description" content="Handmade goods" />
+        <style>
+          @import url(https://fonts.googleapis.com/css2?family=Danfo&display=swap);
+        </style>
       </Head>
       <div className='relative isolate px-6 pt-10 lg:px-8'>
         {/* <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
@@ -29,11 +32,14 @@ export default function Home({ home, products }) {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div> */}
+        <div className='mb-20'>
+          <h1 className='text-desert-green-dark text-center mx-auto font-junkie-cowboy text-8xl'>Dead West</h1>
+        </div>
         <div className="mx-auto max-w-6xl min-w-40">
           <div className="flex flex-wrap sm:mb-8 justify-center">
-            <button type="button" className="flex-initial w-96 m-w-60 mx-auto py-4 my-4 mx-4 text-desert-red hover:text-desert-turquoise border-4 border-desert-red hover:bg-desert-red focus:ring-4 focus:outline-none focus:ring-desert-turquoise font-light rounded-full text-4xl text-center">Gallery</button>
+            <button type="button" className="flex-initial w-96 m-w-60 py-4 my-4 mx-4 font-junkie-cowboy text-desert-green-light min-[880px]:text-desert-green-dark hover:text-desert-green-light border-4 border-desert-green-dark bg-desert-green-dark min-[880px]:bg-transparent hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-4xl text-center">GALLERY</button>
             <Link href="/categories/featured">
-              <button type="button" className="flex-initial w-96 m-w-60 col-auto mx-auto py-4 my-4 mx-4 text-desert-red hover:text-desert-turquoise border-4 border-desert-red hover:bg-desert-red focus:ring-4 focus:outline-none focus:ring-desert-turquoise font-light rounded-full text-4xl text-center">Shop</button>
+              <button type="button" className="flex-initial w-96 m-w-60 col-auto py-4 my-4 mx-4 font-junkie-cowboy text-desert-green-light min-[880px]:text-desert-green-dark hover:text-desert-green-light border-4 border-desert-green-dark bg-desert-green-dark min-[880px]:bg-transparent hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-4xl text-center">SHOP</button>
             </Link>
           </div>
         </div>

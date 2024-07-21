@@ -1,4 +1,5 @@
 import { Cloudinary } from "@cloudinary/url-gen"
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 const cld = new Cloudinary({
     cloud: {
@@ -10,5 +11,5 @@ const cld = new Cloudinary({
 })
 
 export function buildImage(src) {
-    return cld.image(src).quality('auto').format('auto');
+    return cld.image(src).quality('auto').format('auto').resize(fill(500, 500));
 }

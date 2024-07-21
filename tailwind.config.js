@@ -15,7 +15,12 @@ module.exports = {
         'desert-turquoise': '#95DED5',
         'desert-brown': '#522A27',
         'desert-red': '#C73E1D',
-        'desert-green': '#646F58'
+        'desert-green': '#646F58',
+        'desert-green-dark': '#3D4337',
+        'desert-green-light': '#E0E3DD'
+      },
+      fontFamily: {
+        'junkie-cowboy': ['"Junkie Cowboy"'],
       }
     },
   },
