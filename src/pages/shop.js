@@ -15,7 +15,7 @@ export default function Shop({ products }) {
             </Head>
             <div className='w-full'>
 
-                <h2 className='font-junkie-cowboy text-desert-green-dark text-5xl mb-8 mx-auto text-center px-2'>SHOP</h2>
+                <h2 className=' text-desert-green-dark text-5xl mb-8 mx-auto text-center px-2'>SHOP</h2>
 
                 <div className='mx-6'>
                     <div className='mx-auto grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
