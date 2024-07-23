@@ -17,18 +17,20 @@ export default function Shop({ products }) {
 
                 <h2 className='font-junkie-cowboy text-desert-green-dark text-5xl mb-8 mx-auto text-center px-2'>GALLERY</h2>
 
-                <div className='w-fit grid sm:grid-cols-2 md:grid-cols-3 mx-auto sm:mx-6'>
-                    {products.map(product => {
-                        const imgURL = buildImage(product.images[0].public_id).toURL();
-                        return (
-                            <div key={product.name} className="max-w-sm mx-2 mb-4 bg-desert-green-light  rounded-lg shadow-lg">
-                                <img className=" rounded-t-lg" src={imgURL} alt="product image" />
-                                <div className="px-2 pb-2">
-                                    <h5 className="text-xl font-semibold tracking-tight text-desert-green-dark">{product.name}</h5>
+                <div className='mx-6'>
+                    <div className="mx-auto grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+                        {products.map(product => {
+                            const imgURL = buildImage(product.images[0].public_id).toURL();
+                            return (
+                                <div key={product.name} className="max-w-sm mx-4 justify-self-center mb-10 bg-desert-green-light  rounded-lg shadow-lg">
+                                    <img className=" rounded-t-lg" src={imgURL} alt="product image" />
+                                    <div className="px-2 pb-2">
+                                        <h5 className="text-xl font-semibold tracking-tight text-desert-green-dark">{product.name}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </Layout>
