@@ -28,11 +28,11 @@ export default function Shop({ products }) {
                                     </Link>
                                     <div className="px-2 pb-2">
                                         <Link href={'/products/' + product.slug}>
-                                            <h5 className="text-xl font-semibold tracking-tight text-desert-green-dark">{product.name}</h5>
+                                            <h5 className="font-sans text-xl font-semibold tracking-tight text-desert-green-dark">{product.name}</h5>
                                         </Link>
                                         <div className="flex items-center justify-between">
-                                            <span className="text-desert-green-dark">${product.price}</span>
-                                            <button className="snipcart-add-item px-2 py-1 text-desert-green-dark hover:text-desert-green-light border-2 border-desert-green-dark hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-md text-center"
+                                            <span className="font-sans text-desert-green-dark">${product.price}</span>
+                                            <button className="font-sans snipcart-add-item px-2 py-1 text-desert-green-dark hover:text-desert-green-light border-2 border-desert-green-dark hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-md text-center"
                                                 data-item-id={product.id}
                                                 data-item-price={product.price}
                                                 data-item-description={product.description?.text}
