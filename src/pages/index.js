@@ -37,8 +37,10 @@ export default function Home({ home, products }) {
         </div>
         <div className="mx-auto max-w-6xl min-w-40">
           <div className="flex flex-wrap sm:mb-8 justify-center">
-            <button type="button" className="flex-initial w-96 m-w-60 py-4 my-4 mx-4 font-junkie-cowboy text-desert-green-light min-[880px]:text-desert-green-dark hover:text-desert-green-light border-4 border-desert-green-dark bg-desert-green-dark min-[880px]:bg-transparent hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-4xl text-center">GALLERY</button>
-            <Link href="/categories/featured">
+            <Link href="/gallery">
+              <button type="button" className="flex-initial w-96 m-w-60 py-4 my-4 mx-4 font-junkie-cowboy text-desert-green-light min-[880px]:text-desert-green-dark hover:text-desert-green-light border-4 border-desert-green-dark bg-desert-green-dark min-[880px]:bg-transparent hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-4xl text-center">GALLERY</button>
+            </Link>
+            <Link href="/shop">
               <button type="button" className="flex-initial w-96 m-w-60 col-auto py-4 my-4 mx-4 font-junkie-cowboy text-desert-green-light min-[880px]:text-desert-green-dark hover:text-desert-green-light border-4 border-desert-green-dark bg-desert-green-dark min-[880px]:bg-transparent hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-full text-4xl text-center">SHOP</button>
             </Link>
           </div>
