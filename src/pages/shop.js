@@ -15,7 +15,7 @@ export default function Shop({ products }) {
             </Head>
             <div className='w-full'>
 
-                <h2 className=' text-desert-green-dark text-5xl mb-8 mx-auto text-center px-2'>SHOP</h2>
+                <h2 className='font-junkie text-desert-green-dark text-6xl mb-8 mx-auto text-center px-2'>SHOP</h2>
 
                 <div className='mx-6'>
                     <div className='mx-auto grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
@@ -28,7 +28,7 @@ export default function Shop({ products }) {
                                     </Link>
                                     <div className="px-2 pb-2">
                                         <Link href={'/products/' + product.slug}>
-                                            <h5 className="font-sans text-xl font-semibold tracking-tight text-desert-green-dark">{product.name}</h5>
+                                            <h5 className="font-playwrite text-xl font-semibold tracking-tight text-desert-green-dark pt-2">{product.name}</h5>
                                         </Link>
                                         <div className="flex items-center justify-between">
                                             <span className="font-sans text-desert-green-dark">${product.price}</span>

@@ -12,7 +12,6 @@
     "@cloudinary/url-gen": "^1.19.0",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
-    "@next/font": "^14.2.5",
     "autoprefixer": "^10.4.19",
     "graphql": "^16.8.2",
     "next": "^14.2.5",

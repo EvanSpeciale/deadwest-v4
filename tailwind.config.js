@@ -20,7 +20,8 @@ module.exports = {
         'desert-green-light': '#E0E3DD'
       },
       fontFamily: {
-        'junkie-cowboy': ['"Junkie Cowboy"'],
+        playwrite: ['var(--font-playwrite-ar)'],
+        junkie: ['var(--font-junkie-cowboy)']
       }
     },
   },
