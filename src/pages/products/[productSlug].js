@@ -19,7 +19,8 @@ export default function Product({ product }) {
 
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="mx-4 mt-4 sm:mt-0">
+          <div className='sm:hidden font-junkie text-desert-green-dark text-5xl text-center mb-6'>{product.name}</div>
+          <div className="mx-4 mt-0">
             <CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />
             <div className='w-100 grid grid-cols-3 gap-4 mt-4'>
               {product.images.map(image => {
@@ -30,8 +31,8 @@ export default function Product({ product }) {
             </div>
           </div>
           <div className="mx-4 mt-4 sm:mt-0 bg-desert-green-light bg-opacity-80 rounded-lg">
-            <div className='font-playwrite text-desert-green-dark text-3xl md:text-4xl lg:text-5xl mx-6 mt-8'>{product.name}</div>
-            <div className="font-sans mx-6 mt-8 text-2xl"> {product.description?.text}</div>
+            <div className='hidden sm:block font-playwrite text-desert-green-dark text-3xl md:text-4xl lg:text-5xl mx-6 mt-8'>{product.name}</div>
+            <div className="font-playwrite mx-6 mt-8 text-2xl"> {product.description?.text}</div>
             <div className='flex justify-between mx-6 my-8'>
               <p className="font-playwrite text-2xl content-center">
                 ${product.price}
