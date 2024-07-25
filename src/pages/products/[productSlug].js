@@ -19,7 +19,7 @@ export default function Product({ product }) {
 
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="mx-4 mt-4">
+          <div className="mx-4 mt-4 sm:mt-0">
             <CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />
             <div className='w-100 grid grid-cols-3 gap-4 mt-4'>
               {product.images.map(image => {
