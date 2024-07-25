@@ -6,6 +6,7 @@ import Layout from '@components/Layout';
 
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
+import { CldImage } from 'next-cloudinary';
 
 export default function Shop({ products }) {
     return (
@@ -28,7 +29,8 @@ export default function Shop({ products }) {
                             const imgURL = buildImage(product.images[0].public_id).toURL();
                             return (
                                 <div key={product.name} className="max-w-sm mx-4 justify-self-center mb-10 bg-desert-green-light  rounded-lg shadow-lg">
-                                    <img className=" rounded-t-lg" src={imgURL} alt="product image" />
+                                    <CldImage className="rounded-t-lg" src={product.images[0].url} width="500" height="500" crop="auto" alt={product.name} />
+                                    {/* <img className=" rounded-t-lg" src={imgURL} alt="product image" /> */}
                                     <div className="px-2 pb-2">
                                         <h5 className="text-xl font-playwrite tracking-tight text-desert-green-dark mt-3 mb-2">{product.name}</h5>
                                     </div>

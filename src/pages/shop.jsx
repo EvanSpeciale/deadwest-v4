@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import { buildImage } from '@lib/cloudinary';
 
 import Layout from '@components/Layout';
 
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa';
+import { CldImage } from 'next-cloudinary';
 
 export default function Shop({ products }) {
     return (
@@ -25,11 +25,17 @@ export default function Shop({ products }) {
                 <div className='mx-6'>
                     <div className='mx-auto grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
                         {products.map(product => {
-                            const imgURL = buildImage(product.images[0].public_id).toURL();
                             return (
                                 <div key={product.name} className="max-w-sm mx-4 justify-self-center mb-10 bg-desert-green-light  rounded-lg shadow-lg">
                                     <Link className="rounded-lg" href={'/products/' + product.slug}>
-                                        <img className=" rounded-t-lg" src={imgURL} alt="product image" />
+                                        <div>
+                                            <CldImage className="rounded-t-lg" src={product.images[0].url} width="500" height="500" crop="auto" alt={product.name} />
+                                            {/* <img
+                                                className="rounded-t-lg"
+                                                src={imgURL}
+                                                alt="product image"
+                                            /> */}
+                                        </div>
                                     </Link>
                                     <div className="px-2 pb-2">
                                         <Link href={'/products/' + product.slug}>

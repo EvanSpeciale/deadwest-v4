@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import { buildImage } from '@lib/cloudinary';
 
 import Layout from '@components/Layout';
-import Header from '@components/Header';
 import Container from '@components/Container';
 import Button from '@components/Button';
 
 import styles from '@styles/Product.module.scss'
+import { CldImage } from 'next-cloudinary';
 
 export default function Product({ product }) {
+  console.log(product.images[0].id)
   return (
     <Layout>
       <Head>
@@ -18,26 +18,35 @@ export default function Product({ product }) {
       </Head>
 
       <Container>
-        <div className={styles.productWrapper}>
-          <div className={styles.productImage}>
-            <img src={buildImage(product.images[0].public_id).toURL()} />
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          <div className="mx-4 mt-4">
+            <CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />
+            <div className='w-100 grid grid-cols-3 gap-4 mt-4'>
+              {product.images.map(image => {
+                return (
+                  <CldImage key={image.id} className='inline rounded-lg' src={image.url} width="250" height="250" crop="auto" alt={product.name} />
+                )
+              })}
+            </div>
           </div>
-          <div className={styles.productContent}>
-            <h1>{product.name}</h1>
-            <div className={styles.productDescription} dangerouslySetInnerHTML={{ __html: product.description?.html }} />
-            <p className={styles.productPrice}>
-              ${product.price}
-            </p>
-            <p className={styles.productBuy}>
-              <Button className="snipcart-add-item"
-                data-item-id={product.id}
-                data-item-price={product.price}
-                data-item-description={product.description?.text}
-                data-item-image={product.images[0].url}
-                data-item-name={product.name}>
-                Add to Cart
-              </Button>
-            </p>
+          <div className="mx-4 mt-4 bg-desert-green-light bg-opacity-50 rounded-lg">
+            <div className='font-playwrite text-desert-green-dark text-5xl mx-6 mt-8'>{product.name}</div>
+            <div className="font-sans mx-6 mt-8 text-2xl"> {product.description?.text}</div>
+            <div className='flex justify-between mx-6 mt-8'>
+              <p className="font-playwrite text-2xl align-middle">
+                ${product.price}
+              </p>
+              <p className="">
+                <button type="button" className="snipcart-add-item font-playwrite text-lg px-4 py-2 text-desert-green-dark hover:text-desert-green-light border-2 border-desert-green-dark bg-desert-green-light hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-md text-center"
+                  data-item-id={product.id}
+                  data-item-price={product.price}
+                  data-item-description={product.description?.text}
+                  data-item-image={product.images[0].url}
+                  data-item-name={product.name}>
+                  Add to Cart
+                </button>
+              </p>
+            </div>
           </div>
         </div>
       </Container>
