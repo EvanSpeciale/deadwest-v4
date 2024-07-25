@@ -5,6 +5,7 @@ import { buildImage } from '@lib/cloudinary';
 import Layout from '@components/Layout';
 
 import Link from 'next/link';
+import { FaArrowLeft } from 'react-icons/fa';
 
 export default function Shop({ products }) {
     return (
@@ -15,7 +16,11 @@ export default function Shop({ products }) {
             </Head>
             <div className='w-full'>
 
-                <h2 className='font-junkie text-desert-green-dark text-6xl mb-8 mx-auto text-center px-2'>SHOP</h2>
+                <div className='font-junkie text-desert-green-dark text-6xl w-fit mx-auto mb-6'>
+                    <Link href="/gallery">
+                        SHOP
+                    </Link>
+                </div>
 
                 <div className='mx-6'>
                     <div className='mx-auto grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
@@ -45,6 +50,11 @@ export default function Shop({ products }) {
                                 </div>
                             )
                         })}
+                    </div>
+                    <div className='w-fit mx-auto'>
+                        <Link href="/gallery">
+                            <button type="button" className="font-playwrite text-sm p-2 text-desert-green-dark hover:text-desert-green-light border-2 border-desert-green-dark bg-desert-green-light hover:bg-desert-green-dark focus:ring-4 focus:outline-none focus:ring-desert-green-light rounded-md text-center"><FaArrowLeft className='inline mb-1' />Mosey on back to the gallery</button>
+                        </Link>
                     </div>
                 </div>
 
