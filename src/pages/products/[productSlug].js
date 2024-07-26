@@ -3,14 +3,16 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 import Layout from '@components/Layout';
 import Container from '@components/Container';
-import Button from '@components/Button';
 
-import styles from '@styles/Product.module.scss'
 import { CldImage } from 'next-cloudinary';
 import { useState } from 'react';
 
 export default function Product({ product }) {
-  const [mainImage, setMainImage] = useState(product.images[0].url);
+  const images = [];
+  for (let i = 0; i < product.images.length; i++) {
+    images.push(<CldImage key={product.images[i].id} className='inline rounded-lg' src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} onClick={() => setMainImage(<CldImage className="rounded-lg" src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} />)} />)
+  }
+  const [mainImage, setMainImage] = useState(<CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />);
   return (
     <Layout>
       <Head>
@@ -22,12 +24,10 @@ export default function Product({ product }) {
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className='sm:hidden font-junkie text-desert-green-dark text-5xl text-center mb-6'>{product.name}</div>
           <div className="mx-4 mt-0">
-            <CldImage className="rounded-lg" src={mainImage} width="750" height="750" crop="auto" alt={product.name} />
+            {mainImage}
             <div className='w-100 grid grid-cols-3 gap-4 mt-4'>
-              {product.images.map(image => {
-                return (
-                  <CldImage key={image.id} className='inline rounded-lg' src={image.url} width="250" height="250" crop="auto" alt={product.name} onClick={() => setMainImage(image.url)} />
-                )
+              {images.map(image => {
+                return (image);
               })}
             </div>
           </div>
