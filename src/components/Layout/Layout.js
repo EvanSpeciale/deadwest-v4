@@ -4,7 +4,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 
 import styles from './Layout.module.scss';
-
+import { FaSkull } from 'react-icons/fa';
 const Layout = ({ children, className, ...rest }) => {
   let layoutClassName = styles.layout;
 

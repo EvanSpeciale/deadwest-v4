@@ -13,6 +13,7 @@ export default function Product({ product }) {
     images.push(<CldImage key={product.images[i].id} className='inline rounded-lg' src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} onClick={() => setMainImage(<CldImage className="rounded-lg" src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} />)} />)
   }
   const [mainImage, setMainImage] = useState(<CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />);
+  console.log(product.description.html);
   return (
     <Layout>
       <Head>
@@ -32,8 +33,8 @@ export default function Product({ product }) {
             </div>
           </div>
           <div className="mx-4 mt-4 sm:mt-0 bg-desert-green-light bg-opacity-80 rounded-lg">
-            <div className='hidden sm:block font-playwrite text-desert-green-dark text-3xl md:text-4xl lg:text-5xl mx-6 mt-8'>{product.name}</div>
-            <div className="font-playwrite mx-6 mt-8 text-2xl"> {product.description?.text}</div>
+            <div className='hidden sm:block font-junkie text-desert-green-dark text-3xl md:text-4xl lg:text-5xl text-center my-14'>{product.name}</div>
+            <div className="font-playwrite mx-6 mt-8 text-2xl" dangerouslySetInnerHTML={{ __html: product.description?.html }} />
             <div className='flex justify-between mx-6 my-8'>
               <p className="font-playwrite text-2xl content-center">
                 ${product.price}

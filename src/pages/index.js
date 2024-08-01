@@ -4,19 +4,17 @@ import Link from 'next/link';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 import Layout from '@components/Layout';
+import Image from 'next/image';
+import deadWestLogo from '../../public/images/dead-west-logo.svg'
 
 export default function Home({ home, products }) {
-  const { heroTitle, heroText, heroLink, heroBackground } = home;
   return (
     <Layout className="test">
       <Head>
         <title>Dead West</title>
         <meta name="description" content="Handmade goods" />
-        <style>
-          @import url(https://fonts.googleapis.com/css2?family=Danfo&display=swap);
-        </style>
       </Head>
-      <div className='relative isolate px-6 pt-10 lg:px-8'>
+      <div className='relative isolate px-6 lg:px-8 w-100'>
         {/* <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
           <div
             style={{
@@ -26,8 +24,8 @@ export default function Home({ home, products }) {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div> */}
-        <div className='mb-20'>
-          <h1 className='font-junkie text-desert-green-dark text-center mx-auto text-8xl'>Dead West</h1>
+        <div className=''>
+          <Image src={deadWestLogo} alt='dead west logo' height={400} width={400} className='mx-auto'></Image>
         </div>
         <div className="mx-auto max-w-6xl min-w-40">
           <div className="flex flex-wrap sm:mb-8 justify-center">

@@ -1,13 +1,11 @@
+'use client'
 import Link from 'next/link';
-import { useSnipcart } from 'use-snipcart';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { FaShoppingCart, FaSkull } from 'react-icons/fa';
-import { useRouter } from 'next/router';
-import { Bars3Icon } from '@heroicons/react/24/outline'
+import deadWestLogo from '../../../public/images/dead-west-logo.svg'
 
-import Container from '@components/Container';
 
-import styles from './Header.module.scss';
-import { useState } from 'react';
 
 const navigation = [
   { name: 'Gallery', href: '#' },
@@ -15,11 +13,7 @@ const navigation = [
 ]
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { locale: activeLocale, locales, asPath } = useRouter();
-  const availableLocales = locales.filter(locale => locale !== activeLocale);
-  const { cart = {} } = useSnipcart();
-  const { subtotal = '0' } = cart;
+  const pathname = usePathname();
   return (
     <header className="bg-none">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -31,46 +25,14 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        {/* <div className="flex lg:hidden">
-          <button
-            type='button'
-            onClick={() => setMobileMenuOpen(true)}
-            className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
-          >
-            <span className="sr-only">Open Main Menu</span>
-            <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-          </button>
-        </div> */}
-        {/* <div className='flex gap-x-12'>
-          {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-gray-900'>
-              {item.name}
-            </Link>
-          ))}
-        </div> */}
+        {pathname != '/' && <Image src={deadWestLogo} alt='dead west logo' height={75} width={75} className='mx-auto'></Image>
+        }
         <div className="flex flex-1 justify-end">
           <button className='snipcart-checkout'>
             <FaShoppingCart className='size-6 text-desert-green-dark' />
           </button>
         </div>
       </nav>
-      {/* <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className='fixed inset-0 z-50' />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <div>
-                <span className='sr-only'>Dead West</span>
-                <img
-                  alt=""
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  className="h-8 w-auto"
-                />
-              </div>
-            </Link>
-          </div>
-        </DialogPanel>
-      </Dialog> */}
     </header>
 
 
