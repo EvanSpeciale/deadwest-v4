@@ -16,7 +16,7 @@ module.exports = {
         'desert-red': '#C73E1D',
         'desert-green': '#646F58',
         'desert-green-dark': '#3D4337',
-        'desert-green-light': '#E0E3DD'
+        'desert-green-light': '#D6DAD2'
       },
       fontFamily: {
         playwrite: ['var(--font-playwrite-ar)'],
