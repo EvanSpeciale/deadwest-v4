@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Layout from '@components/Layout';
 import Container from '@components/Container';
@@ -10,9 +11,13 @@ import { useState } from 'react';
 export default function Product({ product }) {
   const images = [];
   for (let i = 0; i < product.images.length; i++) {
-    images.push(<CldImage key={product.images[i].id} className='inline rounded-lg' src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} onClick={() => setMainImage(<CldImage className="rounded-lg" src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} />)} />)
+    images.push(<CldImage key={product.images[i].id} className='inline rounded-lg' src={product.images[i].url} width="750" height="750" crop="auto" alt={product.name} onClick={() => {
+      setImageUrl(product.images[i].url)
+    }} />)
   }
   const [mainImage, setMainImage] = useState(<CldImage className="rounded-lg" src={product.images[0].url} width="750" height="750" crop="auto" alt={product.name} />);
+  const [imageUrl, setImageUrl] = useState(product.images[0].url);
+
   console.log(product.description.html);
   return (
     <Layout>
@@ -25,7 +30,16 @@ export default function Product({ product }) {
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className='sm:hidden font-junkie text-desert-green-dark text-5xl text-center mb-6'>{product.name}</div>
           <div className="mx-4 mt-0">
-            {mainImage}
+
+            <motion.div className='static' key={imageUrl} initial={{ opacity: 0, y: 200 }} animate={{
+              opacity: 1, y: 0, transition: {
+                ease: 'easeOut',
+                duration: 0.1
+              }
+            }}>
+              <CldImage className='rounded-lg' src={imageUrl} width="750" height="750" crop="auto" alt={product.name} />
+            </motion.div>
+
             <div className='w-100 grid grid-cols-3 gap-4 mt-4'>
               {images.map(image => {
                 return (image);
